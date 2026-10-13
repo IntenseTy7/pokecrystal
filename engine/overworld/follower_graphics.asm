@@ -130,12 +130,12 @@ LoadFollowerGFX::
 	ret c
 	ldh a, [rVBK]
 	push af
-	ld a, 1
+	xor a
 	ldh [rVBK], a
 
 	push de
 	push bc
-	ld hl, vTiles0 + FOLLOWER_VTILE * TILE_SIZE
+	ld hl, vTiles0 + FOLLOWER_VRAM_TILE * TILE_SIZE
 	call Get2bpp
 	pop bc
 	pop de
@@ -145,7 +145,7 @@ LoadFollowerGFX::
 	ld d, h
 	ld e, l
 	ld c, FOLLOWER_SPRITE_TILES
-	ld hl, vTiles1 + FOLLOWER_VTILE * TILE_SIZE
+	ld hl, vTiles1 + FOLLOWER_VRAM_TILE * TILE_SIZE
 	call Get2bpp
 
 	pop af

@@ -472,7 +472,7 @@ ArrangeUsedSprites:
 
 ; Spill over into the second table after $80 tiles.
 	add b
-	cp FOLLOWER_VTILE
+	cp $80
 	jr z, .loop
 	jr nc, .SecondTable
 
@@ -498,10 +498,18 @@ ArrangeUsedSprites:
 	ld a, [hl]
 	call GetSpriteLength
 
-; There are only two tables, so don't go any further than that.
+; Reserve logical tiles $f4-$ff exclusively for the follower.
 	add b
 	jr c, .quit
+	cp FOLLOWER_VTILE
+	jr c, .fits_second_table
+	jr nz, .quit
 
+; Exact fit: assign this sprite, then stop.
+	ld [hl], b
+	ret
+
+.fits_second_table
 	ld [hl], b
 	ld b, a
 	inc hl
