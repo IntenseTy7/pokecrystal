@@ -20,3 +20,8 @@ DEF FOLLOWER_OVERRIDE_MAGIC    EQU $a5
 
 ; Additional graphics IDs begin after Celebi. IDs are 16-bit at runtime.
 DEF FOLLOWER_GFX_CUSTOM_BASE   EQU NUM_POKEMON + 1
+
+; Reserve four tiles for fruit-tree graphics.
+DEF FIXED_FRUIT_TREE_VTILE EQU $78
+DEF FIXED_FRUIT_TREE_TILES EQU 4
+assert FIXED_FRUIT_TREE_VTILE + FIXED_FRUIT_TREE_TILES == $7c

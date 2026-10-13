@@ -142,6 +142,7 @@ LoadUsedSpritesGFX:
 	ld a, MAPCALLBACK_SPRITES
 	call RunMapCallback
 	call GetUsedSprites
+	farcall LoadFixedFruitTreeGFX
 	farcall LoadFollowerGFX
 	call LoadMiscTiles
 	ret
@@ -323,6 +324,8 @@ LoadAndSortSprites:
 AddSpriteGFX:
 	cp SPRITE_FOLLOWER
 	ret z
+	cp SPRITE_FRUIT_TREE
+	ret z
 ; Add any new sprite ids to a list of graphics to be loaded.
 ; Return carry if the list is full.
 
@@ -472,7 +475,7 @@ ArrangeUsedSprites:
 
 ; Spill over into the second table after $80 tiles.
 	add b
-	cp $80
+	cp FIXED_FRUIT_TREE_VTILE
 	jr z, .loop
 	jr nc, .SecondTable
 

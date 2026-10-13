@@ -192,3 +192,24 @@ RefreshFollowerGFX::
 	and a
 	ret
 
+
+; Load fruit-tree graphics into fixed tiles $78-$7b in VRAM bank 1.
+LoadFixedFruitTreeGFX::
+	ldh a, [rVBK]
+	push af
+
+	ld a, 1
+	ldh [rVBK], a
+
+	ld de, FruitTreeSpriteGFX
+	ld b, BANK(FruitTreeSpriteGFX)
+	ld c, FIXED_FRUIT_TREE_TILES
+	ld hl, vTiles0 + FIXED_FRUIT_TREE_VTILE * TILE_SIZE
+	call Get2bpp
+
+	pop af
+	ldh [rVBK], a
+	ret
+
+; Load fruit-tree graphics into fixed tiles $78-$7b in VRAM bank 1.
+

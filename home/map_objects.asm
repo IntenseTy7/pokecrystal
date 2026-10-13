@@ -18,8 +18,15 @@ GetSpriteVTile::
 	push hl
 	push bc
 	cp SPRITE_FOLLOWER
-	jr nz, .search
+	jr nz, .not_follower
 	ld a, FOLLOWER_VTILE
+	and a
+	jr .done
+
+.not_follower
+	cp SPRITE_FRUIT_TREE
+	jr nz, .search
+	ld a, FIXED_FRUIT_TREE_VTILE
 	and a
 	jr .done
 
