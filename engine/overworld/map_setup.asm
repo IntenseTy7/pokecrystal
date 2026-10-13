@@ -79,7 +79,9 @@ LoadMapObjects:
 	ld a, MAPCALLBACK_OBJECTS
 	call RunMapCallback
 	farcall LoadObjectMasks
+	farcall PlaceFollowerObject
 	farcall InitializeVisibleSprites
+	farcall StartFollowerObject
 	ret
 
 MapSetup_DummyFunction: ; unreferenced
@@ -198,3 +200,115 @@ ForceMapMusic:
 .notbiking
 	call TryRestartMapMusic
 	ret
+
+PUSHS
+SECTION "Follower", ROMX
+
+FollowerObjectTemplate:
+    object_event 0, 0, FOLLOWER_SPRITE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FollowerDummyScript, -1
+
+AddFollowerObject::
+    ld a, [wCurMapObjectEventCount]
+    cp NUM_OBJECTS - 1
+    ret nc
+    ld hl, wMap1Object
+    and a
+    jr z, .found
+    ld de, MAPOBJECT_LENGTH
+.next
+    add hl, de
+    dec a
+    jr nz, .next
+.found
+    ld a, $ff
+    ld [hli], a
+    ld de, FollowerObjectTemplate
+    ld b, OBJECT_EVENT_SIZE
+.copy
+    ld a, [de]
+    inc de
+    ld [hli], a
+    dec b
+    jr nz, .copy
+    ld hl, wCurMapObjectEventCount
+    inc [hl]
+    ret
+
+FindFollowerSlot:
+    ld a, [wCurMapObjectEventCount]
+    and a
+    jr z, .none
+    dec a
+    ld hl, wMap1Object
+    jr z, .check
+    ld de, MAPOBJECT_LENGTH
+.next
+    add hl, de
+    dec a
+    jr nz, .next
+.check
+    push hl
+    ld de, 1 + OBJECT_EVENT_SIZE - 4
+    add hl, de
+    ld de, FollowerObjectTemplate + OBJECT_EVENT_SIZE - 4
+    ld b, 4
+.compare
+    ld a, [de]
+    inc de
+    cp [hl]
+    jr nz, .mismatch
+    inc hl
+    dec b
+    jr nz, .compare
+    pop hl
+    and a
+    ret
+.mismatch
+    pop hl
+.none
+    scf
+    ret
+
+PlaceFollowerObject::
+    call FindFollowerSlot
+    ret c
+    push hl
+    ld de, MAPOBJECT_Y_COORD
+    add hl, de
+    ld a, [wYCoord]
+    add 4
+    ld [hl], a
+    pop hl
+    ld de, MAPOBJECT_X_COORD
+    add hl, de
+    ld a, [wXCoord]
+    add 4
+    ld [hl], a
+    ret
+
+StartFollowerObject::
+    call FindFollowerSlot
+    ret c
+    ld a, [wCurMapObjectEventCount]
+    ld c, a
+    ld b, 0
+    farcall StartFollow
+    ret
+
+RespawnFollowerObject::
+    call FindFollowerSlot
+    ret c
+    ld a, [wCurMapObjectEventCount]
+    ldh [hMapObjectIndex], a
+    call DeleteObjectStruct
+    call PlaceFollowerObject
+    ld a, [wCurMapObjectEventCount]
+    call UnmaskCopyMapObjectStruct
+    jp StartFollowerObject
+POPS
+
+PUSHS
+SECTION "Follower Dummy Script", ROM0
+FollowerDummyScript::
+    end
+POPS

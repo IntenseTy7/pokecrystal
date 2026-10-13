@@ -633,6 +633,11 @@ ENDM
 	ld bc, wObjectStructs ; redundant
 	farcall IsNPCAtCoord
 	jr nc, .no_npc
+	ld hl, OBJECT_MOVEMENT_TYPE
+	add hl, bc
+	ld a, [hl]
+	cp SPRITEMOVEDATA_FOLLOWING
+	jr z, .no_npc
 	call .CheckStrengthBoulder
 	jr c, .no_bump
 

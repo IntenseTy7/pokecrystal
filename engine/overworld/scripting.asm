@@ -1016,6 +1016,7 @@ Script_follow:
 
 Script_stopfollow:
 	farcall StopFollow
+	farcall RespawnFollowerObject
 	ret
 
 Script_moveobject:

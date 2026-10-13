@@ -568,6 +568,7 @@ ReadBGEvents::
 ReadObjectEvents::
 	push hl
 	call ClearObjectStructs
+	farcall StopFollow
 	pop de
 	ld hl, wMap1Object
 	ld a, [de]
@@ -603,6 +604,9 @@ ReadObjectEvents::
 	jr nz, .loop
 
 .skip
+	push de
+	farcall AddFollowerObject
+	pop de
 	ld h, d
 	ld l, e
 	ret
