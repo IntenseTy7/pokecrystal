@@ -82,6 +82,7 @@ LoadMapObjects:
 	farcall PlaceFollowerObject
 	farcall InitializeVisibleSprites
 	farcall StartFollowerObject
+	call UpdatePlayerSprite
 	ret
 
 MapSetup_DummyFunction: ; unreferenced
@@ -208,6 +209,8 @@ FollowerObjectTemplate:
     object_event 0, 0, FOLLOWER_SPRITE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FollowerDummyScript, -1
 
 AddFollowerObject::
+	ld a, SPRITE_FAIRY
+	ld [wVariableSprites + SPRITE_FOLLOWER - SPRITE_VARS], a
     ld a, [wCurMapObjectEventCount]
     cp NUM_OBJECTS - 1
     ret nc

@@ -48,6 +48,8 @@ RefreshSprites::
 	ld hl, wUsedSprites
 	call ByteFill
 	call GetPlayerSprite
+	ld a, FOLLOWER_SPRITE
+	call AddSpriteGFX
 	call AddMapSprites
 	call LoadAndSortSprites
 	ret

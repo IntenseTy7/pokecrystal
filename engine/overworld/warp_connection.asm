@@ -324,6 +324,7 @@ RefreshMapSprites:
 	ld hl, wStateFlags
 	set SPRITE_UPDATES_DISABLED_F, [hl]
 	call SafeUpdateSprites
+	call UpdatePlayerSprite
 .skip
 	ld a, [wPlayerSpriteSetupFlags]
 	and (1 << PLAYERSPRITESETUP_FEMALE_TO_MALE_F) | (1 << 3) | (1 << 4)

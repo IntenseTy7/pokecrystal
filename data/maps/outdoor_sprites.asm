@@ -33,7 +33,6 @@ OutdoorSprites:
 	assert_table_length NUM_MAP_GROUPS
 
 PalletGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -59,7 +58,6 @@ PalletGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 ViridianGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -85,7 +83,6 @@ ViridianGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 PewterGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -111,7 +108,6 @@ PewterGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 CinnabarGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -137,7 +133,6 @@ CinnabarGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 CeruleanGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -163,7 +158,6 @@ CeruleanGroupSprites:
 	db SPRITE_SLOWPOKE
 
 SaffronGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -189,7 +183,6 @@ SaffronGroupSprites:
 	db SPRITE_SLOWPOKE
 
 CeladonGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -215,7 +208,6 @@ CeladonGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 LavenderGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -241,7 +233,6 @@ LavenderGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 VermilionGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -267,7 +258,6 @@ VermilionGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 FuchsiaGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -293,7 +283,6 @@ FuchsiaGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 IndigoGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -319,7 +308,6 @@ IndigoGroupSprites:
 	db SPRITE_BOULDER
 
 NewBarkGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -345,7 +333,6 @@ NewBarkGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 CherrygroveGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -371,7 +358,6 @@ CherrygroveGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 SilverGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -397,7 +383,6 @@ SilverGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 VioletGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -423,7 +408,6 @@ VioletGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 EcruteakGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -449,7 +433,6 @@ EcruteakGroupSprites:
 	db SPRITE_FRUIT_TREE
 
 AzaleaGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -475,7 +458,6 @@ AzaleaGroupSprites:
 	db SPRITE_SLOWPOKE
 
 GoldenrodGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_POKE_BALL
@@ -501,7 +483,6 @@ GoldenrodGroupSprites:
 	db SPRITE_SLOWPOKE
 
 CianwoodGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -527,7 +508,6 @@ CianwoodGroupSprites:
 	db SPRITE_ROCK
 
 OlivineGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -553,7 +533,6 @@ OlivineGroupSprites:
 	db SPRITE_ROCK
 
 LakeOfRageGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -579,7 +558,6 @@ LakeOfRageGroupSprites:
 	db SPRITE_POKE_BALL
 
 MahoganyGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -605,7 +583,6 @@ MahoganyGroupSprites:
 	db SPRITE_POKE_BALL
 
 BlackthornGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -631,7 +608,6 @@ BlackthornGroupSprites:
 	db SPRITE_POKE_BALL
 
 DungeonsGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -657,7 +633,6 @@ DungeonsGroupSprites:
 	db SPRITE_BOULDER
 
 FastShipGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_SUICUNE
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -683,7 +658,6 @@ FastShipGroupSprites:
 	db SPRITE_ROCK
 
 CableClubGroupSprites:
-	db FOLLOWER_SPRITE
 	db SPRITE_OAK
 	db SPRITE_FISHER
 	db SPRITE_TEACHER

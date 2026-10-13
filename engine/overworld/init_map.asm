@@ -74,6 +74,7 @@ LoadFonts_NoOAMUpdate::
 	ld a, $90
 	ldh [hWY], a
 	call SafeUpdateSprites
+	call UpdatePlayerSprite
 	call LoadStandardFont
 	ret
 
