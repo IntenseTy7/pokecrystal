@@ -150,6 +150,8 @@ DEF NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 	const_next $e0
 	const SPRITE_DAY_CARE_MON_1 ; e0
 	const SPRITE_DAY_CARE_MON_2 ; e1
+	const SPRITE_FOLLOWER ; e2
+DEF FOLLOWER_SPRITE EQU SPRITE_FOLLOWER
 
 ; wVariableSprites indexes (see wram.asm)
 	const_next $f0
@@ -167,6 +169,5 @@ DEF SPRITE_VARS EQU const_value
 	const SPRITE_FUCHSIA_GYM_4 ; fa
 	const SPRITE_COPYCAT ; fb
 	const SPRITE_JANINE_IMPERSONATOR ; fc
-	const SPRITE_FOLLOWER ; fd
 
-DEF FOLLOWER_SPRITE EQU SPRITE_FOLLOWER
+INCLUDE "constants/follower_constants.asm"

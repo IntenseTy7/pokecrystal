@@ -17,6 +17,13 @@ GetSpritePalette::
 GetSpriteVTile::
 	push hl
 	push bc
+	cp SPRITE_FOLLOWER
+	jr nz, .search
+	ld a, FOLLOWER_VTILE
+	and a
+	jr .done
+
+.search
 	ld hl, wUsedSprites + 2
 	ld c, SPRITE_GFX_LIST_CAPACITY - 1
 	ld b, a

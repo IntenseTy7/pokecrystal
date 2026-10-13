@@ -142,6 +142,7 @@ LoadUsedSpritesGFX:
 	ld a, MAPCALLBACK_SPRITES
 	call RunMapCallback
 	call GetUsedSprites
+	farcall LoadFollowerGFX
 	call LoadMiscTiles
 	ret
 
@@ -168,6 +169,11 @@ SafeGetSprite:
 	ret
 
 GetSprite:
+	cp SPRITE_FOLLOWER
+	jr nz, .not_follower
+	farcall GetFollowerSpriteData
+	ret
+.not_follower
 	call GetMonSprite
 	ret c
 
@@ -284,6 +290,13 @@ _DoesSpriteHaveFacings::
 
 _GetSpritePalette::
 	ld a, c
+	cp SPRITE_FOLLOWER
+	jr nz, .not_follower
+	ld a, [wFollowerPalette]
+	ld c, a
+	ret
+.not_follower
+	ld a, c
 	call GetMonSprite
 	jr c, .is_pokemon
 
@@ -308,6 +321,8 @@ LoadAndSortSprites:
 	ret
 
 AddSpriteGFX:
+	cp SPRITE_FOLLOWER
+	ret z
 ; Add any new sprite ids to a list of graphics to be loaded.
 ; Return carry if the list is full.
 
@@ -457,7 +472,7 @@ ArrangeUsedSprites:
 
 ; Spill over into the second table after $80 tiles.
 	add b
-	cp $80
+	cp FOLLOWER_VTILE
 	jr z, .loop
 	jr nc, .SecondTable
 

@@ -209,8 +209,8 @@ FollowerObjectTemplate:
     object_event 0, 0, FOLLOWER_SPRITE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FollowerDummyScript, -1
 
 AddFollowerObject::
-	ld a, SPRITE_FAIRY
-	ld [wVariableSprites + SPRITE_FOLLOWER - SPRITE_VARS], a
+	farcall PrepareFollowerGFX
+	ret c
     ld a, [wCurMapObjectEventCount]
     cp NUM_OBJECTS - 1
     ret nc
